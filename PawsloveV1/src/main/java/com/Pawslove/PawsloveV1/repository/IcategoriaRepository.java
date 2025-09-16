@@ -1,4 +1,7 @@
 package com.Pawslove.PawsloveV1.repository;
 
-public interface IcategoriaRepository {
+import com.Pawslove.PawsloveV1.modelo.Categoria;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IcategoriaRepository extends JpaRepository<Categoria, Long> {
 }

@@ -1,4 +1,7 @@
 package com.Pawslove.PawsloveV1.repository;
 
-public interface IdonacionesRepository {
+import com.Pawslove.PawsloveV1.modelo.Donaciones;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IdonacionesRepository extends JpaRepository<Donaciones, Long> {
 }

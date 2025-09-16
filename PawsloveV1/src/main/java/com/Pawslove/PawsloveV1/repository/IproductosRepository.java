@@ -1,4 +1,7 @@
 package com.Pawslove.PawsloveV1.repository;
 
-public interface IproductosRepository {
+import com.Pawslove.PawsloveV1.modelo.Productos;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IproductosRepository extends JpaRepository<Productos, Long> {
 }
