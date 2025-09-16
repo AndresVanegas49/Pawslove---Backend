@@ -1,4 +1,8 @@
 package com.Pawslove.PawsloveV1.repository;
 
-public interface ImascotasRepository {
+import com.Pawslove.PawsloveV1.modelo.Mascotas;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ImascotasRepository extends JpaRepository<Mascotas, Long> {
 }
+

@@ -1,4 +1,7 @@
 package com.Pawslove.PawsloveV1.repository;
 
-public interface IadopcionesRepository {
+import com.Pawslove.PawsloveV1.modelo.Adopciones;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IadopcionesRepository extends JpaRepository<Adopciones, Long> {
 }
