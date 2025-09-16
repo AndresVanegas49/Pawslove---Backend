@@ -10,30 +10,34 @@ public class Ordenes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_orden;
+    @Column(nullable = false)
     private LocalDateTime fecha;
+    @Column(nullable = false)
     private int cantidad;
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_usuario", nullable = false)
     @JsonBackReference("orden_id_usuario")
-    private Long id_usuario;
-    @ManyToOne
+    private Usuarios usuario;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_producto", nullable = false)
     @JsonBackReference("orden_id_producto")
-    private Long id_producto;
+    private Productos producto;
 
     public Ordenes() {}
 
-    public Ordenes(LocalDateTime fecha, int cantidad, Long id_usuario, Long id_producto) {
+    public Ordenes(LocalDateTime fecha, int cantidad, Usuarios usuario, Productos producto) {
         this.fecha = fecha;
         this.cantidad = cantidad;
-        this.id_usuario = id_usuario;
-        this.id_producto = id_producto;
+        this.usuario = usuario;
+        this.producto = producto;
     }
 
-    public Ordenes(Long id_orden, LocalDateTime fecha, int cantidad, Long id_usuario, Long id_producto) {
+    public Ordenes(Long id_orden, LocalDateTime fecha, int cantidad, Usuarios usuario, Productos producto) {
         this.id_orden = id_orden;
         this.fecha = fecha;
         this.cantidad = cantidad;
-        this.id_usuario = id_usuario;
-        this.id_producto = id_producto;
+        this.usuario = usuario;
+        this.producto = producto;
     }
 
     public Long getId_orden() {
@@ -48,12 +52,12 @@ public class Ordenes {
         return cantidad;
     }
 
-    public Long getId_usuario() {
-        return id_usuario;
+    public Usuarios getUsuario() {
+        return usuario;
     }
 
-    public Long getId_producto() {
-        return id_producto;
+    public Productos getProducto() {
+        return producto;
     }
 
     public void setFecha(LocalDateTime fecha) {
@@ -62,5 +66,13 @@ public class Ordenes {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setProducto(Productos producto) {
+        this.producto = producto;
     }
 }//Cierre de clase
