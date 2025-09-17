@@ -22,7 +22,7 @@ public class AdministradoresController {
     }
 
     @GetMapping("/{id}")
-    public Administradores getAdministradorById(Long id) {
+    public Administradores getAdministradorById(@PathVariable Long id) {
         return administradoresService.findById(id).orElse(null);
     }
 
@@ -36,5 +36,9 @@ public class AdministradoresController {
         administradoresService.deleteById(id);
     }
 
+    @PutMapping("/actualizarAdmin/{id}")
+    public Administradores updateAdministrador(@PathVariable Long id, @RequestBody Administradores administradorDetalles) {
+        return administradoresService.update(id, administradorDetalles).orElse(null);
+    }
 
 }//Cierre de controller
