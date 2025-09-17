@@ -19,7 +19,6 @@ public class Categoria {
     @Column(length = 500)
     private String descripcion;
 
-    // Navegación inversa (opcional) hacia Producto
     @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
     private List<Productos> productos = new ArrayList<>();
 
