@@ -1,10 +1,9 @@
 package com.Pawslove.PawsloveV1.modelo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-
 import java.util.List;
-
 
 @Entity
 @Table(name = "usuarios")
@@ -13,30 +12,30 @@ public class Usuarios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false) //Unique para que no se repita y NotNull para que no sea nulo
+    @Column(nullable = false)
     private String nombre;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String apellido;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String direccion;
 
     @Email
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String telefono;
 
-    @Column(nullable = false)
-    private String constrasena;
+    @Column(nullable = false, name = "constrasena")
+    @JsonProperty("password")
+    private String password;
 
     @Column
-    private String estado;
+    private String estado = "activo"; // Valor por defecto
 
-    //Relaciones con otras tablas
-
+    // Relaciones con otras tablas
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Adopciones> adopciones;
 
@@ -45,6 +44,31 @@ public class Usuarios {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ordenes> ordenes;
+
+    // Constructores
+    public Usuarios() {
+    }
+
+    public Usuarios(String nombre, String apellido, String direccion, String email, String telefono, String password) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.email = email;
+        this.telefono = telefono;
+        this.password = password;
+        this.estado = "activo";
+    }
+
+    public Usuarios(Long id, String nombre, String apellido, String direccion, String email, String telefono, String password, String estado) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.email = email;
+        this.telefono = telefono;
+        this.password = password;
+        this.estado = estado;
+    }
 
     // Getters y Setters
     public Long getId() {
@@ -95,12 +119,22 @@ public class Usuarios {
         this.telefono = telefono;
     }
 
+    // Getters y Setters para password (mapeado a constrasena en BD)
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
     public String getConstrasena() {
-        return constrasena;
+        return password;
     }
 
     public void setConstrasena(String constrasena) {
-        this.constrasena = constrasena;
+        this.password = constrasena;
     }
 
     public String getEstado() {
@@ -112,23 +146,39 @@ public class Usuarios {
     }
 
     // Getters y Setters para las relaciones
-
     public List<Adopciones> getAdopciones() {
         return adopciones;
     }
+
     public void setAdopciones(List<Adopciones> adopciones) {
         this.adopciones = adopciones;
     }
+
     public List<Donaciones> getDonaciones() {
         return donaciones;
     }
+
     public void setDonaciones(List<Donaciones> donaciones) {
         this.donaciones = donaciones;
     }
+
     public List<Ordenes> getOrdenes() {
         return ordenes;
     }
+
     public void setOrdenes(List<Ordenes> ordenes) {
         this.ordenes = ordenes;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", estado='" + estado + '\'' +
+                '}';
     }
 }
