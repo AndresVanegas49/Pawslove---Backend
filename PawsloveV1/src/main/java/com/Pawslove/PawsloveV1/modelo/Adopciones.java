@@ -14,8 +14,8 @@ public class Adopciones {
     private LocalDate fecha;
     private String documento;
 
-    @ManyToOne
-    @JoinColumn(name = "id_mascota", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "id_mascota", unique = true, nullable = false)
     private Mascotas mascota;
 
     @ManyToOne
