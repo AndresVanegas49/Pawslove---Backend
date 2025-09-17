@@ -1,7 +1,6 @@
 package com.Pawslove.PawsloveV1.modelo;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "mascotas")
@@ -16,8 +15,8 @@ public class Mascotas {
     private String raza;
     private Integer edad;
 
-    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Adopciones> adopciones;
+    @OneToOne(mappedBy = "mascota", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Adopciones adopcion;
 
     // Getters y setters
     public Long getIdMascota() { return idMascota; }
@@ -34,4 +33,7 @@ public class Mascotas {
 
     public Integer getEdad() { return edad; }
     public void setEdad(Integer edad) { this.edad = edad; }
+
+    public Adopciones getAdopcion() { return adopcion; }
+    public void setAdopcion(Adopciones adopcion) { this.adopcion = adopcion; }
 }
