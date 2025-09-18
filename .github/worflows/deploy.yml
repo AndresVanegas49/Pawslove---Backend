@@ -54,3 +54,4 @@ jobs:
         run: |
           aws apprunner start-deployment \
           --service-arn ${{ secrets.APP_RUNNER_SERVICE_ARN }}
+
