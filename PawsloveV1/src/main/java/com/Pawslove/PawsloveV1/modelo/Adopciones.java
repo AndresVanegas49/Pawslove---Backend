@@ -1,5 +1,6 @@
 package com.Pawslove.PawsloveV1.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -9,16 +10,20 @@ public class Adopciones {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_adopcion")
     private Long idAdopcion;
 
     private LocalDate fecha;
+    @Column(name = "documentoAdopcion")
     private String documento;
 
     @OneToOne
+    @JsonBackReference("mascotas_adopciones")
     @JoinColumn(name = "id_mascota", unique = true, nullable = false)
     private Mascotas mascota;
 
     @ManyToOne
+    @JsonBackReference("usuarios_adopciones")
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuarios usuario;
 
@@ -38,4 +43,3 @@ public class Adopciones {
     public Usuarios getUsuario() { return usuario; }
     public void setUsuario(Usuarios usuario) { this.usuario = usuario; }
 }
-

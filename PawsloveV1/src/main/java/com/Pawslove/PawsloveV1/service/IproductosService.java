@@ -1,4 +1,6 @@
 package com.Pawslove.PawsloveV1.service;
 
-public interface IproductosService {
+import com.Pawslove.PawsloveV1.modelo.Productos;
+
+public interface IproductosService extends IgenericService<Productos, Long>{
 }

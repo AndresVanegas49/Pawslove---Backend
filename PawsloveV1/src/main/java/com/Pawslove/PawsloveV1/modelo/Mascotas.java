@@ -1,5 +1,6 @@
 package com.Pawslove.PawsloveV1.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,7 @@ public class Mascotas {
     private Integer edad;
 
     @OneToOne(mappedBy = "mascota", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("mascotas_adopciones")
     private Adopciones adopcion;
 
     // Getters y setters

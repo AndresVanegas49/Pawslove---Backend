@@ -3,15 +3,16 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Productos;
 import com.Pawslove.PawsloveV1.repository.IproductosRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductosService {
+public class ProductosService{
 
     //Inyección del repositorio
     private IproductosRepository iproductosRepository;
 
-    //Constructor para la inyección de dependencias
+    @Autowired
     public ProductosService(IproductosRepository iproductosRepository) {
         this.iproductosRepository = iproductosRepository;
     }
@@ -45,4 +46,6 @@ public class ProductosService {
     public java.util.List<Productos> buscarPorNombre(String nombre) {
         return iproductosRepository.findByNombre(nombre);
     }
+
+
 }

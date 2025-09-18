@@ -1,4 +1,6 @@
 package com.Pawslove.PawsloveV1.service;
 
-public interface IcategoriaService {
+import com.Pawslove.PawsloveV1.modelo.Categoria;
+
+public interface IcategoriaService extends IgenericService<Categoria, Long>{
 }

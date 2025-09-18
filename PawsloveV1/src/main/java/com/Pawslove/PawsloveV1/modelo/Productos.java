@@ -1,7 +1,10 @@
 package com.Pawslove.PawsloveV1.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.List;
 
 
 @Entity
@@ -9,9 +12,10 @@ import jakarta.validation.constraints.NotBlank;
 public class Productos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto")
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     @NotBlank(message = "El nombre no puede estar vacío")
     private String nombre;
 
@@ -21,9 +25,12 @@ public class Productos {
     @Column(nullable = false)
     private double precio;
 
-    @Column(unique = true, nullable = false)
-    @NotBlank(message = "El stock no puede estar vacío")
+    @Column
     private Integer stock;
+
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("orden_id_producto")
+    private List<Ordenes> ordenes;
 
     // Constructores
     public Productos() {

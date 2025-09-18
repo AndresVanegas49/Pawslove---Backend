@@ -27,4 +27,21 @@ public class MascotasService implements ImascotasService {
 
     @Override
     public void deleteById(Long id) { mascotaRepository.deleteById(id); }
+
+    @Override
+    public Optional<Mascotas> update(Long id, Mascotas mascotaDetalles) {
+        Optional<Mascotas> mascotaOptional = mascotaRepository.findById(id);
+        if (mascotaOptional.isPresent()) {
+            Mascotas mascotaActualizada = mascotaOptional.get();
+            mascotaActualizada.setNombre(mascotaDetalles.getNombre());
+            mascotaActualizada.setEspecie(mascotaDetalles.getEspecie());
+            mascotaActualizada.setRaza(mascotaDetalles.getRaza());
+            mascotaActualizada.setEdad(mascotaDetalles.getEdad());
+            mascotaActualizada.setAdopcion(mascotaDetalles.getAdopcion());
+            mascotaRepository.save(mascotaActualizada);
+            return Optional.of(mascotaActualizada);
+        } else {
+            return Optional.empty();
+        }
+    }
 }

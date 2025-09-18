@@ -27,5 +27,21 @@ public class AdopcionesService implements IadopcionesService {
 
     @Override
     public void deleteById(Long id) { adopcionRepository.deleteById(id); }
+
+    @Override
+    public Optional<Adopciones> update(Long id, Adopciones adopcionDetalles) {
+        Optional<Adopciones> adopcionOptional = adopcionRepository.findById(id);
+        if (adopcionOptional.isPresent()) {
+            Adopciones adopcionActualizada = adopcionOptional.get();
+            adopcionActualizada.setFecha(adopcionDetalles.getFecha());
+            adopcionActualizada.setDocumento(adopcionDetalles.getDocumento());
+            adopcionActualizada.setUsuario(adopcionDetalles.getUsuario()); // Actualiza el usuario
+            adopcionActualizada.setMascota(adopcionDetalles.getMascota()); // Actualiza la mascota
+            adopcionRepository.save(adopcionActualizada);
+            return Optional.of(adopcionActualizada);
+        } else {
+            return Optional.empty();
+        }
+    }
 }
 

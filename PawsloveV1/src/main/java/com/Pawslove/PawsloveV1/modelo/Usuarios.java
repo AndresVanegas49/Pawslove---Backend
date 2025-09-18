@@ -1,5 +1,6 @@
 package com.Pawslove.PawsloveV1.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
@@ -11,22 +12,23 @@ import java.util.List;
 public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id;
 
-    @Column(unique = true, nullable = false) //Unique para que no se repita y NotNull para que no sea nulo
+    @Column(nullable = false)
     private String nombre;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String apellido;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String direccion;
 
     @Email
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String email;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String telefono;
 
     @Column(nullable = false)
@@ -38,12 +40,15 @@ public class Usuarios {
     //Relaciones con otras tablas
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("usuarios_adopciones")
     private List<Adopciones> adopciones;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("donaciones_id_usuario")
     private List<Donaciones> donaciones;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("orden_id_usuario")
     private List<Ordenes> ordenes;
 
     // Getters y Setters

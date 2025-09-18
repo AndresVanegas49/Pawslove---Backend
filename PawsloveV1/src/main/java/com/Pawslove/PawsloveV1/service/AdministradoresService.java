@@ -42,10 +42,11 @@ public class AdministradoresService implements  IadministradoresService{
         Optional<Administradores> adminisdorOptional = administradoresRepository.findById(id);
         if (adminisdorOptional.isPresent()) {
             Administradores administradorActualizado = adminisdorOptional.get();
-            administradorActualizado.setUsername(administradorDetalles.getUsername());
+            administradorActualizado.setNombre(administradorDetalles.getNombre());
+            administradorActualizado.setApellido(administradorDetalles.getApellido());
             administradorActualizado.setEmail(administradorDetalles.getEmail());
-            administradorActualizado.setPasswordHash(administradorDetalles.getPasswordHash()); // Actualiza el usuario
-            administradorActualizado.setActivo(administradorDetalles.isActivo()); // Actualiza el producto
+            administradorActualizado.setContrasena(administradorDetalles.getContrasena()); // Actualiza el usuario
+            administradorActualizado.setEstado(administradorDetalles.isEstado()); // Actualiza el producto
             administradoresRepository.save(administradorActualizado);
             return Optional.of(administradorActualizado);
         } else {
