@@ -1,6 +1,7 @@
 package com.Pawslove.PawsloveV1.controller;
 
 import com.Pawslove.PawsloveV1.modelo.Administradores;
+import com.Pawslove.PawsloveV1.service.interfaces.IadministradoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +10,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/administradores")
 public class AdministradoresController {
-    private final com.Pawslove.PawsloveV1.service.IadministradoresService administradoresService;
+    private final IadministradoresService administradoresService;
 
     @Autowired
-    public AdministradoresController(com.Pawslove.PawsloveV1.service.IadministradoresService administradoresService) {
+    public AdministradoresController(IadministradoresService administradoresService) {
         this.administradoresService = administradoresService;
     }
 

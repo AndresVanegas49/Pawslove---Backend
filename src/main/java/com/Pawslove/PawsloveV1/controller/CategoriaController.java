@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/categorias")
+@RequestMapping("/categorias")
 public class CategoriaController {
 
     private final IcategoriaRepository repo;
@@ -19,13 +19,13 @@ public class CategoriaController {
         this.repo = repo;
     }
 
-    // GET /api/categorias
+    // GET /categorias
     @GetMapping
     public List<Categoria> listar() {
         return repo.findAll();
     }
 
-    // GET /api/categorias/{id}
+    // GET /categorias/{id}
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> obtener(@PathVariable Long id) {
         return repo.findById(id)
@@ -33,8 +33,8 @@ public class CategoriaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // POST /api/categorias
-    @PostMapping
+    // POST /categorias
+    @PostMapping("/crearCategoria")
     public ResponseEntity<Categoria> crear(@Valid @RequestBody Categoria body) {
         body.setId(null); // Ignorar id entrante
         Categoria guardada = repo.save(body);
@@ -43,8 +43,8 @@ public class CategoriaController {
                 .body(guardada);
     }
 
-    // PUT /api/categorias/{id}
-    @PutMapping("/{id}")
+    // PUT /categorias/{id}
+    @PutMapping("/auctualizarCategoria/{id}")
     public ResponseEntity<Categoria> actualizar(@PathVariable Long id,
                                                 @Valid @RequestBody Categoria body) {
         return repo.findById(id)
@@ -58,7 +58,7 @@ public class CategoriaController {
     }
 
     // DELETE /api/categorias/{id}
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminarCategoria/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         if (!repo.existsById(id)) return ResponseEntity.notFound().build();
         repo.deleteById(id);

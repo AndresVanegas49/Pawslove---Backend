@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Ordenes;
 import com.Pawslove.PawsloveV1.repository.IordenesRepository;
+import com.Pawslove.PawsloveV1.service.interfaces.IordenesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
