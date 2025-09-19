@@ -18,8 +18,8 @@ public class UsuariosService implements IusuariosService {
     @Autowired
     private IusuariosRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
 
     // Inyección del repositorio
     private IusuariosRepository usuariosRepository;
