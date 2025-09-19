@@ -1,0 +1,1029 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "name": "Pawslove API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Administradores",
+      "item": [
+        {
+          "name": "Listar todos los Administradores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/administradores",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administradores"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Administrador por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/administradores/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administradores",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Administrador",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Admin\",\n    \"apellido\": \"Principal\",\n    \"email\": \"admin@pawslove.com\",\n    \"contrasena\": \"password123\",\n    \"estado\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/administradores",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administradores"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Administrador",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Admin Actualizado\",\n    \"apellido\": \"Principal\",\n    \"email\": \"admin.updated@pawslove.com\",\n    \"contrasena\": \"newpassword456\",\n    \"estado\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/administradores/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administradores",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Administrador",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/administradores/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administradores",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Listar todos los Usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuarios",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Usuario por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuarios/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Daniel\",\n    \"apellido\": \"Vargas\",\n    \"direccion\": \"Calle Falsa 123\",\n    \"email\": \"daniel.vargas@example.com\",\n    \"telefono\": \"3001234567\",\n    \"contrasena\": \"securepass\",\n    \"estado\": \"activo\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/usuarios",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Usuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Daniel\",\n    \"apellido\": \"Vargas\",\n    \"direccion\": \"Avenida Siempre Viva 742\",\n    \"email\": \"daniel.vargas@example.com\",\n    \"telefono\": \"3007654321\",\n    \"contrasena\": \"newsecurepass\",\n    \"estado\": \"inactivo\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/usuarios/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Usuario",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuarios/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Usuario por Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuarios/buscarPorEmail?email=daniel.vargas@example.com",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuarios",
+                "buscarPorEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "daniel.vargas@example.com"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "Listar todos los Productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/productos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "productos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Producto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/productos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "productos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Collar para Perro\",\n    \"descripcion\": \"Collar de cuero resistente\",\n    \"precio\": 15.99,\n    \"stock\": 100,\n    \"categoria\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/productos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "productos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Collar para Perro Grande\",\n    \"descripcion\": \"Collar de cuero extra resistente\",\n    \"precio\": 19.99,\n    \"stock\": 80,\n    \"categoria\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/productos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "productos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/productos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "productos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Producto por Nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/productos/buscarPorNombre?nombre=Collar",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "productos",
+                "buscarPorNombre"
+              ],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Collar"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categorias",
+      "item": [
+        {
+          "name": "Listar todas las Categorias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/categorias",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categorias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Categoria por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/categorias/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categorias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Categoria",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Accesorios\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/categorias",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categorias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Categoria",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Accesorios para Mascotas\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/categorias/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categorias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Categoria",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/categorias/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "categorias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ordenes",
+      "item": [
+        {
+          "name": "Listar todas las Ordenes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/ordenes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "ordenes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Orden por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/ordenes/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "ordenes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Orden",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fecha\": \"2024-05-21T10:00:00\",\n    \"cantidad\": 2,\n    \"usuario\": {\n        \"id\": 1\n    },\n    \"producto\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/ordenes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "ordenes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Orden",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fecha\": \"2024-05-21T10:05:00\",\n    \"cantidad\": 3,\n    \"usuario\": {\n        \"id\": 1\n    },\n    \"producto\": {\n        \"id\": 2\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/ordenes/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "ordenes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Orden",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/ordenes/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "ordenes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Donaciones",
+      "item": [
+        {
+          "name": "Listar todas las Donaciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/donaciones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "donaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Donacion por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/donaciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "donaciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Donacion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cantidad_donada\": 50.00,\n    \"fecha\": \"2024-05-21T11:00:00\",\n    \"usuario\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/donaciones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "donaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Donacion",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cantidad_donada\": 75.50,\n    \"fecha\": \"2024-05-21T11:30:00\",\n    \"usuario\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/donaciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "donaciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Donacion",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/donaciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "donaciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Mascotas",
+      "item": [
+        {
+          "name": "Listar todas las Mascotas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/mascotas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "mascotas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Mascota por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/mascotas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "mascotas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Mascota",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Fido\",\n    \"especie\": \"Perro\",\n    \"raza\": \"Labrador\",\n    \"edad\": 3\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/mascotas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "mascotas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Mascota",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Fido\",\n    \"especie\": \"Perro\",\n    \"raza\": \"Labrador Retriever\",\n    \"edad\": 4\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/mascotas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "mascotas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Mascota",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/mascotas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "mascotas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Adopciones",
+      "item": [
+        {
+          "name": "Listar todas las Adopciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/adopciones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "adopciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Adopcion por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/adopciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "adopciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Adopcion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fecha\": \"2024-05-21\",\n    \"documento\": \"doc_adopcion_fido_001.pdf\",\n    \"usuario\": {\n        \"id\": 1\n    },\n    \"mascota\": {\n        \"idMascota\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/adopciones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "adopciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Adopcion",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fecha\": \"2024-05-22\",\n    \"documento\": \"doc_adopcion_fido_001_rev1.pdf\",\n    \"usuario\": {\n        \"id\": 1\n    },\n    \"mascota\": {\n        \"idMascota\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/adopciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "adopciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Adopcion",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/adopciones/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "adopciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
