@@ -22,7 +22,7 @@ public class JwtUtil {
     }
 
     // Generador de JWT Token
-    private String generateToken(String email) {
+    public String generateToken(String email) {
         return io.jsonwebtoken.Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new java.util.Date())
