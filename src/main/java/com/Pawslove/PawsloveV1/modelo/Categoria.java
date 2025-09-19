@@ -1,6 +1,7 @@
 package com.Pawslove.PawsloveV1.modelo;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class Categoria {
     private String descripcion;
 
     @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
+    @JsonManagedReference("categoria-productos")
     private List<Productos> productos = new ArrayList<>();
 
     // Getters y Setters

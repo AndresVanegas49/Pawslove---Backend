@@ -30,47 +30,41 @@ public class UsuariosService implements IusuariosService {
     }
 
     // Crear o actualizar un usuario
-    @Override
     public Usuarios guardarUsuario(Usuarios usuario) {
         return usuariosRepository.save(usuario);
     }
 
     // Obtener todos los usuarios
-    @Override
     public List<Usuarios> obtenerTodosLosUsuarios() {
         return usuariosRepository.findAll();
     }
 
     // Obtener un usuario por ID
-    @Override
     public Optional<Usuarios> obtenerUsuarioPorId(Long id) {
         return usuariosRepository.findById(id);
     }
 
     // Eliminar un usuario por ID
-    @Override
     public void eliminarUsuario(Long id) {
         usuariosRepository.deleteById(id);
     }
 
     // Buscar usuario por email (usando metodo de repositorio)
-    @Override
     public Usuarios buscarPorEmail(String email) {
         return usuariosRepository.findByEmail(email);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) {
-        Usuarios usuario = usuariosRepository.findByEmail(email);
-        if (usuario == null) {
-            throw new RuntimeException("Usuario no encontrado");
-        }
-        return org.springframework.security.core.userdetails.User
-                .withUsername(usuario.getEmail())
-                .password(usuario.getPassword())
-                .authorities("USER") // Puedes ajustar los roles según tu lógica
-                .build();
-    }
+//    public UserDetails loadUserByUsername(String email) {
+//        Usuarios usuario = usuariosRepository.findByEmail(email);
+//        if (usuario == null) {
+//            throw new RuntimeException("Usuario no encontrado");
+//        }
+//        return org.springframework.security.core.userdetails.User
+//                .withUsername(usuario.getEmail())
+//                .password(usuario.getPassword())
+//                .authorities("USER") // Puedes ajustar los roles según tu lógica
+//                .build();
+//    }
 
     @Override
     public List<Usuarios> findAll() {
