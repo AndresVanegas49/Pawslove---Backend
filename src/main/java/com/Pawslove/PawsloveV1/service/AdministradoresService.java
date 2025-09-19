@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Administradores;
 import com.Pawslove.PawsloveV1.repository.IadministradoresRepository;
+import com.Pawslove.PawsloveV1.service.interfaces.IadministradoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdministradoresService implements  IadministradoresService{
+public class AdministradoresService implements IadministradoresService {
     private final IadministradoresRepository administradoresRepository;
 
     @Autowired

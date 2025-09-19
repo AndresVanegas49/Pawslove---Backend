@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Adopciones;
 import com.Pawslove.PawsloveV1.repository.IadopcionesRepository;
+import com.Pawslove.PawsloveV1.service.interfaces.IadopcionesService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

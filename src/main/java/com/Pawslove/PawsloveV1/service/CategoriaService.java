@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Categoria;
 import com.Pawslove.PawsloveV1.repository.IcategoriaRepository;
+import com.Pawslove.PawsloveV1.service.interfaces.IcategoriaService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

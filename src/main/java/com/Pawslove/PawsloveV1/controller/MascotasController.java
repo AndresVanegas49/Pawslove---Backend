@@ -1,7 +1,8 @@
 package com.Pawslove.PawsloveV1.controller;
 
 import com.Pawslove.PawsloveV1.modelo.Mascotas;
-import com.Pawslove.PawsloveV1.service.ImascotasService;
+import com.Pawslove.PawsloveV1.service.interfaces.ImascotasService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ public class MascotasController {
 
     private final ImascotasService mascotaService;
 
+    @Autowired
     public MascotasController(ImascotasService mascotaService) {
         this.mascotaService = mascotaService;
     }
@@ -29,12 +31,12 @@ public class MascotasController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/ingresarMascota")
     public Mascotas crearMascota(@RequestBody Mascotas mascota) {
         return mascotaService.save(mascota);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizarMascota/{id}")
     public ResponseEntity<Mascotas> actualizarMascota(@PathVariable Long id, @RequestBody Mascotas mascota) {
         return mascotaService.findById(id)
                 .map(m -> {

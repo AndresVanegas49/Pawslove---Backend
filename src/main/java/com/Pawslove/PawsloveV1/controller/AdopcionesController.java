@@ -1,7 +1,7 @@
 package com.Pawslove.PawsloveV1.controller;
 
 import com.Pawslove.PawsloveV1.modelo.Adopciones;
-import com.Pawslove.PawsloveV1.service.IadopcionesService;
+import com.Pawslove.PawsloveV1.service.interfaces.IadopcionesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,12 +29,12 @@ public class AdopcionesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/procesoAdopcion")
     public Adopciones crearAdopcion(@RequestBody Adopciones adopcion) {
         return adopcionService.save(adopcion);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizarAdopcion/{id}")
     public ResponseEntity<Adopciones> actualizarAdopcion(@PathVariable Long id, @RequestBody Adopciones adopcion) {
         return adopcionService.findById(id)
                 .map(a -> {
@@ -44,7 +44,7 @@ public class AdopcionesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminarAdopcion/{id}")
     public void eliminarAdopcion(@PathVariable Long id) {
         adopcionService.deleteById(id);
     }

@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Mascotas;
 import com.Pawslove.PawsloveV1.repository.ImascotasRepository;
+import com.Pawslove.PawsloveV1.service.interfaces.ImascotasService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

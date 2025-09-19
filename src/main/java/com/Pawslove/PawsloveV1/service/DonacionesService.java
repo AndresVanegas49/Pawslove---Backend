@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.service;
 
 import com.Pawslove.PawsloveV1.modelo.Donaciones;
 import com.Pawslove.PawsloveV1.repository.IdonacionesRepository;
+import com.Pawslove.PawsloveV1.service.interfaces.IdonacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
