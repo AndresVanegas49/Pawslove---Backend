@@ -18,8 +18,8 @@ public class UsuariosService implements IusuariosService {
     @Autowired
     private IusuariosRepository userRepository;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     // Inyección del repositorio
     private IusuariosRepository usuariosRepository;
@@ -54,17 +54,17 @@ public class UsuariosService implements IusuariosService {
         return usuariosRepository.findByEmail(email);
     }
 
-//    public UserDetails loadUserByUsername(String email) {
-//        Usuarios usuario = usuariosRepository.findByEmail(email);
-//        if (usuario == null) {
-//            throw new RuntimeException("Usuario no encontrado");
-//        }
-//        return org.springframework.security.core.userdetails.User
-//                .withUsername(usuario.getEmail())
-//                .password(usuario.getPassword())
-//                .authorities("USER") // Puedes ajustar los roles según tu lógica
-//                .build();
-//    }
+    public UserDetails loadUserByUsername(String email) {
+        Usuarios usuario = usuariosRepository.findByEmail(email);
+        if (usuario == null) {
+            throw new RuntimeException("Usuario no encontrado");
+        }
+        return org.springframework.security.core.userdetails.User
+                .withUsername(usuario.getEmail())
+                .password(usuario.getPassword())
+                .authorities("USER") // Puedes ajustar los roles según tu lógica
+                .build();
+    }
 
     @Override
     public List<Usuarios> findAll() {
