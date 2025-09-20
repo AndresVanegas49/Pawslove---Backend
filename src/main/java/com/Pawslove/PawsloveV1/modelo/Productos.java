@@ -1,5 +1,6 @@
 package com.Pawslove.PawsloveV1.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -31,6 +32,7 @@ public class Productos {
 
     // Relaciones con otras tablas
     @ManyToOne
+    @JsonBackReference("categoria_productos")
     @JoinColumn(name = "id_categoria", nullable = false)
     @NotNull(message = "La categoría es obligatoria")
     private Categoria categoria;

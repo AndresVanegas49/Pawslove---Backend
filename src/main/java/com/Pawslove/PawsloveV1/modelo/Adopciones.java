@@ -11,7 +11,7 @@ public class Adopciones {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_adopcion")
-    private Long idAdopcion;
+    private Long id;
 
     private LocalDate fecha;
     @Column(name = "documentoAdopcion")
@@ -28,8 +28,8 @@ public class Adopciones {
     private Usuarios usuario;
 
     // Getters y setters
-    public Long getIdAdopcion() { return idAdopcion; }
-    public void setIdAdopcion(Long idAdopcion) { this.idAdopcion = idAdopcion; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public LocalDate getFecha() { return fecha; }
     public void setFecha(LocalDate fecha) { this.fecha = fecha; }

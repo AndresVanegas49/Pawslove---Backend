@@ -2,6 +2,7 @@ package com.Pawslove.PawsloveV1.controller;
 
 import com.Pawslove.PawsloveV1.modelo.Adopciones;
 import com.Pawslove.PawsloveV1.service.interfaces.IadopcionesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ public class AdopcionesController {
 
     private final IadopcionesService adopcionService;
 
+    @Autowired
     public AdopcionesController(IadopcionesService adopcionService) {
         this.adopcionService = adopcionService;
     }
@@ -35,18 +37,19 @@ public class AdopcionesController {
     }
 
     @PutMapping("/actualizarAdopcion/{id}")
-    public ResponseEntity<Adopciones> actualizarAdopcion(@PathVariable Long id, @RequestBody Adopciones adopcion) {
-        return adopcionService.findById(id)
-                .map(a -> {
-                    adopcion.setIdAdopcion(id);
-                    return ResponseEntity.ok(adopcionService.save(adopcion));
-                })
+    public ResponseEntity<Adopciones> actualizarAdopcion(@PathVariable Long id, @RequestBody Adopciones adopcionDetalles) {
+        return adopcionService.update(id, adopcionDetalles)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/eliminarAdopcion/{id}")
-    public void eliminarAdopcion(@PathVariable Long id) {
+    public ResponseEntity<String> deleteAdopcion(@PathVariable Long id) {
         adopcionService.deleteById(id);
+        if (adopcionService.findById(id).isPresent()){
+            return ResponseEntity.ok("El elemento no pudo ser borrado, está relacionado con persona o mascota.");
+        }else{
+            return ResponseEntity.ok("El elemento fue eliminado del sistema.");
+        }
     }
 }
-
