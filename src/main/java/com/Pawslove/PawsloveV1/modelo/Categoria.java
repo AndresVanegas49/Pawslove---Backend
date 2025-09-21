@@ -22,7 +22,7 @@ public class Categoria {
     private String descripcion;
 
     @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
-    @JsonManagedReference("categoria-productos")
+    @JsonManagedReference("categoria_productos")
     private List<Productos> productos = new ArrayList<>();
 
     // Getters y Setters

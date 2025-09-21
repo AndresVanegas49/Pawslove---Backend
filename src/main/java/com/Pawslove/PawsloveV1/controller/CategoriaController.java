@@ -2,7 +2,10 @@ package com.Pawslove.PawsloveV1.controller;
 
 import com.Pawslove.PawsloveV1.modelo.Categoria;
 import com.Pawslove.PawsloveV1.repository.IcategoriaRepository;
+import com.Pawslove.PawsloveV1.service.CategoriaService;
+import com.Pawslove.PawsloveV1.service.interfaces.IcategoriaService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +16,10 @@ import java.util.List;
 @RequestMapping("/categorias")
 public class CategoriaController {
 
-    private final IcategoriaRepository repo;
+    private final CategoriaService repo;
 
-    public CategoriaController(IcategoriaRepository repo) {
+    @Autowired
+    public CategoriaController(CategoriaService repo) {
         this.repo = repo;
     }
 
@@ -59,9 +63,7 @@ public class CategoriaController {
 
     // DELETE /api/categorias/{id}
     @DeleteMapping("/eliminarCategoria/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        if (!repo.existsById(id)) return ResponseEntity.notFound().build();
+    public void deleteCategoria(@PathVariable Long id){
         repo.deleteById(id);
-        return ResponseEntity.noContent().build();
     }
 }

@@ -32,7 +32,7 @@ public class Productos {
 
     // Relaciones con otras tablas
     @ManyToOne
-    @JsonBackReference("categoria-productos")
+    @JsonBackReference("categoria_productos")
     @JoinColumn(name = "id_categoria", nullable = false)
     @NotNull(message = "La categoría es obligatoria")
     private Categoria categoria;

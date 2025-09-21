@@ -21,31 +21,31 @@ public class ProductosController {
 
     @PostMapping
     public ResponseEntity<Productos> crearProducto(@RequestBody Productos productos){
-        Productos nuevoProducto = productosService.guardarProducto(productos);
+        Productos nuevoProducto = productosService.save(productos);
         return ResponseEntity.ok(nuevoProducto);
     }
 
     @GetMapping
     public ResponseEntity<List<Productos>> obtenerProductos() {
-        return ResponseEntity.ok(productosService.obtenerTodosLosProductos());
+        return ResponseEntity.ok(productosService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Productos> obtenerProductoPorId(@PathVariable Long id) {
-        return productosService.obtenerProductoPorId(id)
+        return productosService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
-        productosService.eliminarProducto(id);
+        productosService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/buscarPorNombre")
     public ResponseEntity<List<Productos>> buscarPorNombre(@RequestParam String nombre) {
-        List<Productos> productos = productosService.buscarPorNombre(nombre);
+        List<Productos> productos = productosService.findByNombre(nombre);
         if (productos.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
@@ -53,4 +53,10 @@ public class ProductosController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Productos> actualizarProducto(@PathVariable Long id, @RequestBody Productos productos) {
+        return productosService.update(id, productos)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }

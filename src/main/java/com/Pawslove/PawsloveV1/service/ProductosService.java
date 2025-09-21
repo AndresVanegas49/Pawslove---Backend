@@ -21,65 +21,48 @@ public class ProductosService implements IproductosService {
         this.iproductosRepository = iproductosRepository;
     }
 
-    // Crear o actualizar un producto
+
     @Override
-    public Productos guardarProducto(Productos producto) {
+    // Crear o actualizar un producto
+    public Productos save(Productos producto) {
         return iproductosRepository.save(producto);
     }
 
-    // Obtener todos los productos
     @Override
-    public java.util.List<Productos> obtenerTodosLosProductos() {
+    // Obtener todos los productos
+    public java.util.List<Productos> findAll() {
         return iproductosRepository.findAll();
     }
 
-    // Obtener un producto por ID
     @Override
-    public java.util.Optional<Productos> obtenerProductoPorId(Long id) {
+    // Obtener un producto por ID
+    public java.util.Optional<Productos> findById(Long id) {
         return iproductosRepository.findById(id);
     }
 
-    // Eliminar un producto por ID
     @Override
-    public void eliminarProducto(Long id) {
+    // Eliminar un producto por ID
+    public void deleteById(Long id) {
         iproductosRepository.deleteById(id);
     }
 
-    // Eliminar todos los productos
     @Override
-    public void eliminarTodosLosProductos() {
-        iproductosRepository.deleteAll();
-    }
-
     // Obtener productos por nombre (usando metodo de repositorio)
-    @Override
-    public java.util.List<Productos> buscarPorNombre(String nombre) {
+    public List<Productos> findByNombre(String nombre) {
         return iproductosRepository.findByNombre(nombre);
     }
 
-
     @Override
-    public List<Productos> findAll() {
-        return List.of();
-    }
-
-    @Override
-    public Optional<Productos> findById(Long aLong) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Productos save(Productos entity) {
-        return null;
-    }
-
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-
-    @Override
-    public Optional<Productos> update(Long aLong, Productos entity) {
-        return Optional.empty();
+    public Optional<Productos> update(Long Id, Productos productoDetalles) {
+        return iproductosRepository.findById(Id).map(
+                productoExistente -> {
+                    productoExistente.setNombre(productoDetalles.getNombre());
+                    productoExistente.setDescripcion(productoDetalles.getDescripcion());
+                    productoExistente.setPrecio(productoDetalles.getPrecio());
+                    productoExistente.setStock(productoDetalles.getStock());
+                    productoExistente.setCategoria(productoDetalles.getCategoria());
+                    return iproductosRepository.save(productoExistente);
+                }
+        );
     }
 }
