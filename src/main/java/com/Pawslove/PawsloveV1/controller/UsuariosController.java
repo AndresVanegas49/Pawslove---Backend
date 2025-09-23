@@ -21,11 +21,11 @@ public class UsuariosController {
     }
 
     // Crear un usuario
-    @PostMapping
-    public ResponseEntity<Usuarios> crearUsuario(@RequestBody Usuarios usuario) {
-        Usuarios nuevoUsuario = usuariosService.save(usuario);
-        return ResponseEntity.ok(nuevoUsuario);
-    }
+//    @PostMapping
+//    public ResponseEntity<Usuarios> crearUsuario(@RequestBody Usuarios usuario) {
+//        Usuarios nuevoUsuario = usuariosService.save(usuario);
+//        return ResponseEntity.ok(nuevoUsuario);
+//    }
 
     // Listar todos los usuarios - GET /usuarios
     @GetMapping

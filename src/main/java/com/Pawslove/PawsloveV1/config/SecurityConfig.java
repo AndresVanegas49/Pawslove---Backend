@@ -36,7 +36,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         // Volvemos a definir las rutas públicas aquí
-                        .requestMatchers("/auth/register", "/auth/loginConDTO").permitAll()
+                        .requestMatchers("/auth/register", "/auth/loginConDTO", "/usuarios/buscarPorEmail",
+                                "/productos/buscarPorNombre", "/productos", "/categorias", "/mascotas", "/donaciones/donar",
+                                "/ordenes/crearOrdenes"
+                        ).permitAll()
                         // Todas las demás peticiones requieren autenticación
                         .anyRequest().authenticated()
                 )
