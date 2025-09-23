@@ -38,7 +38,7 @@ public class SecurityConfig {
                         // Volvemos a definir las rutas públicas aquí
                         .requestMatchers("/auth/register", "/auth/loginConDTO", "/usuarios/buscarPorEmail",
                                 "/productos/buscarPorNombre", "/productos", "/categorias", "/mascotas", "/donaciones/donar",
-                                "/ordenes/crearOrdenes"
+                                "/ordenes/crearOrdenes", "/administradores"
                         ).permitAll()
                         // Todas las demás peticiones requieren autenticación
                         .anyRequest().authenticated()
